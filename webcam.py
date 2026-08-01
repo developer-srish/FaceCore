@@ -37,7 +37,7 @@ class WebcamRecognizer:
         return "Unknown", best_score
 
     def run(self, camera_index=0, threshold=65.0, show_emotion=False,
-             window_name="easyface - press q to quit",
+             window_name="FaceCore - press q to quit",
              detect_scale=0.5, detect_every=3, emotion_every=6):
         """
         detect_scale : shrink frame before detection (0.5 = half size = ~4x faster detect)
@@ -108,7 +108,7 @@ class WebcamRecognizer:
             cv2.destroyAllWindows()
 
     def swap_live(self, source_image, camera_index=0,
-                   window_name="easyface - live swap - press q to quit",
+                   window_name="FaceCore - live swap - press q to quit",
                    swap_every=2):
         """
         swap_every: only run the (expensive) swap model every N frames;
