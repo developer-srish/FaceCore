@@ -180,6 +180,15 @@ face.webcam_swap(
 ```
 
 ---
+# Download Required Models
+
+EasyFace uses pretrained ONNX models for advanced features.
+
+| Model | Purpose | Required | Hugging Face |
+|--------|----------|----------|--------------|
+| `buffalo_l` | Face Detection, Recognition, Landmarks | ✅ Yes | Automatically downloaded by InsightFace |
+| `inswapper_128.onnx` | Face Swapping | ✅ Yes | https://huggingface.co/ezioruan/inswapper_128.onnx |
+| `emotion-ferplus-8.onnx` | Emotion Detection | Optional | https://huggingface.co/onnxmodelzoo/emotion-ferplus-8 |
 
 ## 🛠️ Technologies Used
 
