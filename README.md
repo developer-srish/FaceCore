@@ -1,23 +1,22 @@
 # 🧠 FaceCore
 
 <p align="center">
-  <img src="assets/logo.png" alt="FaceCore Logo" width="300">
+  <img src="assets/logo.png" width="260" alt="FaceCore Logo">
 </p>
 
 <h1 align="center">FaceCore</h1>
 
 <p align="center">
-<b>Fast • Accurate • AI-Powered Face Analysis & Face Swapping Library</b>
+<b>Simple • Fast • AI-Powered Face Analysis Library for Python</b>
 </p>
 
 <p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.12+-blue?style=for-the-badge&logo=python)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-success?style=for-the-badge)
+![InsightFace](https://img.shields.io/badge/InsightFace-AI-blue?style=for-the-badge)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv)
 ![ONNX Runtime](https://img.shields.io/badge/ONNX-Runtime-orange?style=for-the-badge)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-Face%20Detection-yellow?style=for-the-badge)
-![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-success?style=for-the-badge)
-![dlib](https://img.shields.io/badge/dlib-Face%20Recognition-blueviolet?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen?style=for-the-badge)
 
 </p>
@@ -26,50 +25,123 @@
 
 # 📖 About
 
-**FaceCore** is a modern Python library for AI-powered face analysis.
+**FaceCore** is a modern Python library that brings multiple AI-powered face processing tools together behind a single, easy-to-use API.
 
-It provides a simple, beginner-friendly API for:
+Instead of working with several different libraries for detection, recognition, landmarks, analysis, emotion detection, and face swapping, FaceCore provides one `Face` class that initializes everything for you.
 
-- Face Detection
-- Face Recognition
-- Face Comparison
-- Face Registration
-- Facial Landmarks
-- Age Detection
-- Gender Detection
-- Emotion Recognition
-- Image Face Swapping
-- Video Face Swapping
-- Live Webcam Recognition
-- Live Webcam Face Swapping
-
-Unlike many face AI libraries, **FaceCore** hides the complexity of loading models, preprocessing images, and running inference. Everything can be done with just a few lines of Python.
-
-Whether you're creating a security system, attendance software, AI camera application, or computer vision project, FaceCore offers an easy-to-use interface while still providing production-quality performance.
+Whether you're creating an attendance system, security application, AI camera, computer vision project, or simply experimenting with facial AI, FaceCore lets you build it with only a few lines of Python.
 
 ---
 
 # ✨ Features
 
-- ✅ Multi-face Detection
-- ✅ Face Recognition
-- ✅ Face Registration
-- ✅ Face Verification
-- ✅ Face Comparison
-- ✅ Face Embeddings
-- ✅ Facial Landmark Detection
-- ✅ Age Prediction
-- ✅ Gender Prediction
-- ✅ Emotion Recognition
-- ✅ Image Face Swapping
-- ✅ Video Face Swapping
-- ✅ Webcam Face Recognition
-- ✅ Webcam Face Swapping
-- ✅ Optional Emotion Overlay
-- ✅ High-Speed ONNX Runtime
-- ✅ MediaPipe Face Detection
-- ✅ dlib Face Recognition
+## 👁 Face Detection
+
+Detect one or multiple faces in an image with accurate bounding boxes.
+
+- Multiple face detection
+- Fast inference
+- Confidence scores
+- Face locations
+
+---
+
+## 👤 Face Recognition
+
+Recognize previously registered people using facial embeddings.
+
+- Face registration
+- Face matching
+- Adjustable recognition threshold
+- Multiple identities
+
+---
+
+## 🆚 Face Comparison
+
+Compare two face images and receive a similarity score.
+
+Perfect for
+
+- Identity verification
+- Duplicate detection
+- Authentication systems
+
+---
+
+## 📍 Facial Landmarks
+
+Extract important facial landmarks including
+
+- Eyes
+- Nose
+- Mouth
+- Face outline
+
+Useful for
+
+- Face alignment
+- Image processing
+- Face swapping
+
+---
+
+## 🎂 Face Analysis
+
+Analyze a detected face and estimate
+
+- Age
+- Gender
+
+using deep learning models.
+
+---
+
+## 😀 Emotion Recognition
+
+Optionally detect facial emotions including
+
+- Happy
+- Sad
+- Angry
+- Fear
+- Surprise
+- Neutral
+
+---
+
+## 🎭 Face Swapping
+
+Swap one person's face onto another image using an ONNX face swap model.
+
+Designed for
+
+- Image editing
+- AI demonstrations
+- Research projects
+
+---
+
+## 📷 Webcam Recognition
+
+Run live face recognition directly from your webcam.
+
+Supports
+
+- Real-time recognition
+- Live detection
+- Multiple faces
+
+---
+
+# ⭐ Why FaceCore?
+
+- ✅ Single `Face()` class
 - ✅ Beginner Friendly API
+- ✅ Modular Design
+- ✅ Fast AI Inference
+- ✅ InsightFace Powered
+- ✅ ONNX Runtime Support
 - ✅ Cross Platform
 - ✅ MIT Licensed
 
@@ -77,499 +149,492 @@ Whether you're creating a security system, attendance software, AI camera applic
 
 # ⚡ Requirements
 
-- Python **3.12+**
-- Windows, Linux or macOS
-- FFmpeg (Required only for `swap_video()`)
-- Webcam (Only required for live features)
+| Requirement | Version |
+|------------|---------|
+| Python | 3.10+ |
+| InsightFace | Latest |
+| OpenCV | Latest |
+| ONNX Runtime | Latest |
+| Pillow | Latest |
+| NumPy | Latest |
 
 ---
 
 # 📦 Installation
 
-## Using pip
+Install FaceCore dependencies
 
 ```bash
-pip install FaceCoreV22
+pip install insightface onnxruntime opencv-python pillow numpy
 ```
 
-or
+or install from the requirements file
 
 ```bash
-pip install mediapipe onnxruntime onnx opencv-python numpy pillow dlib-bin
-```
-
----
-
-## Using uv (Recommended)
-
-```bash
-uv add mediapipe onnxruntime onnx opencv-python numpy pillow dlib-bin
-```
-
-Then synchronize the environment
-
-```bash
-uv sync
-```
-
----
-
-# 🎞 Install FFmpeg
-
-FFmpeg is only required for
-
-- Video Face Swapping
-- Preserving Audio
-
-## Windows
-
-```powershell
-winget install ffmpeg
-```
-
-Restart the terminal afterwards.
-
-Check installation
-
-```bash
-ffmpeg -version
-```
-
----
-
-## Linux
-
-Ubuntu/Debian
-
-```bash
-sudo apt update
-sudo apt install ffmpeg
-```
-
-Arch Linux
-
-```bash
-sudo pacman -S ffmpeg
-```
-
-Fedora
-
-```bash
-sudo dnf install ffmpeg
-```
-
----
-
-## macOS
-
-```bash
-brew install ffmpeg
-```
-
-Verify
-
-```bash
-ffmpeg -version
+pip install -r requirements/requirements.txt
 ```
 
 ---
 
 # 📁 Project Structure
 
-```
+```text
 FaceCore/
 │
-├── FaceCoreV22/
-│   ├── detector.py
-│   ├── recognition.py
-│   ├── analysis.py
-│   ├── landmarks.py
-│   ├── swap.py
-│   ├── video_swap.py
-│   ├── webcam.py
-│   └── core.py
+├── __init__.py
+├── core.py
+├── detector.py
+├── recognition.py
+├── landmarks.py
+├── analysis.py
+├── emotion.py
+├── swap.py
+├── webcam.py
+├── utils.py
+├── examples.py
 │
 ├── assets/
 │   └── logo.png
 │
-├── README.md
+├── requirements/
+│   └── requirements.txt
+│
 ├── LICENSE
-└── pyproject.toml
+└── README.md
 ```
-
----
-
-# 🤖 Model Directory
-
-By default FaceCore searches for models inside
-
-### Windows
-
-```
-C:\Users\<Username>\.easyface\models\
-```
-
-### Linux/macOS
-
-```
-~/.easyface/models/
-```
-
-You may also specify model paths manually while creating the `Face()` object.
 
 ---
 
 # 🚀 Quick Start
 
 ```python
-from FaceCoreV22 import Face
+from FaceCore import Face
 
 face = Face()
 ```
 
-Or specify custom models
+Using a custom face swap model
 
 ```python
-from FaceCoreV22 import Face
+from FaceCore import Face
 
 face = Face(
-    face_model="face_landmarker.task",
-    age_model="age_googlenet.onnx",
-    gender_model="gender_googlenet.onnx",
-    emotion_model="emotion-ferplus-8.onnx",
     swap_model="inswapper_128.onnx"
 )
 ```
 
-Initialize the object only once and reuse it throughout your program.
+Using a different InsightFace model pack
+
+```python
+from FaceCore import Face
+
+face = Face(
+    model_name="buffalo_l"
+)
+```
+
+Initialize the `Face()` object only once and reuse it throughout your application for the best performance.
 
 ---
 
-# 📦 Dependencies
+# 🏗 Architecture
 
-FaceCore is built using
+The `Face` class combines multiple independent modules into a single interface.
 
-- MediaPipe
+```
+                Face
+                  │
+ ┌────────────────┼────────────────┐
+ │                │                │
+Detector     Recognition      Analysis
+ │                │                │
+Landmarks     Emotion        Face Swap
+                  │
+             Webcam Support
+```
+
+This modular architecture keeps the library simple for beginners while remaining flexible for advanced applications.
+
+---
+
+# 📦 Built With
+
+FaceCore is powered by several open-source projects.
+
+- InsightFace
 - ONNX Runtime
 - OpenCV
-- dlib
 - Pillow
 - NumPy
-- FFmpeg
 
-These libraries are automatically used internally, allowing you to work with a clean, minimal API.
+These libraries work behind the scenes, allowing developers to interact with a clean and minimal API.
 
 ---
 
-➡️ **Part 2 will include:**
+# 📚 What's Next?
 
-- Complete Model Download Table
-- Direct Download Links
-- Folder Structure
-- How to Extract `.bz2`
-- Windows/Linux/macOS Model Locations
-- Manual Model Loading
-- Troubleshooting Missing Models
-```
-# 📥 Download Required Models
+**Part 2** includes
 
-FaceCore does **not** automatically download AI models.
+- 📥 Required AI Models
+- 🌐 Official Download Links
+- 📂 Default Model Locations
+- 🖥 Windows Setup
+- 🐧 Linux Setup
+- 🍎 macOS Setup
+- 📦 Manual Model Loading
+- 🧩 InsightFace Model Packs
+- ⚙️ Face Swap Model Installation
+  # 📥 Required AI Models
 
-Download each model below and place it inside the default model directory.
+FaceCore is designed to be lightweight and **does not automatically download AI models**.
 
-## Default Model Directory
-
-### Windows
-
-```text
-C:\Users\<YourUsername>\.easyface\models\
-```
-
-### Linux/macOS
-
-```text
-~/.easyface/models/
-```
+You only need to download the models required for the features you plan to use.
 
 ---
 
 # 📦 Required Models
 
-| Model | Required | Purpose | Download |
-|-------|----------|---------|----------|
-| face_landmarker.task | ✅ Yes | Face Detection & Landmarks | https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task |
-| dlib_face_recognition_resnet_model_v1.dat | ✅ Yes | Face Recognition | http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2 |
-| shape_predictor_5_face_landmarks.dat | ✅ Yes | Face Alignment | http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2 |
-| age_googlenet.onnx | Optional | Age Detection | https://huggingface.co/onnxmodelzoo/age_googlenet/resolve/main/age_googlenet.onnx |
-| gender_googlenet.onnx | Optional | Gender Detection | https://huggingface.co/onnxmodelzoo/gender_googlenet/resolve/main/gender_googlenet.onnx |
-| emotion-ferplus-8.onnx | Optional | Emotion Recognition | https://huggingface.co/onnxmodelzoo/emotion-ferplus-8/resolve/main/emotion-ferplus-8.onnx |
-| inswapper_128.onnx | Optional | Face Swapping | https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx |
+| Model | Required | Purpose |
+|--------|----------|---------|
+| `buffalo_l` | ✅ Yes | Face Detection, Recognition & Embeddings |
+| `inswapper_128.onnx` | Optional | Face Swapping |
+| `age_googlenet.onnx` | Optional | Age Prediction |
+| `gender_googlenet.onnx` | Optional | Gender Prediction |
+| `emotion-ferplus-8.onnx` | Optional | Emotion Recognition |
 
 ---
 
-# 📂 Folder Structure
+# 🌐 Download Links
 
-After downloading all models your folder should look like this:
+## 1️⃣ InsightFace Model Pack
 
-```text
-.easyface/
-└── models/
-    ├── face_landmarker.task
-    ├── dlib_face_recognition_resnet_model_v1.dat
-    ├── shape_predictor_5_face_landmarks.dat
-    ├── age_googlenet.onnx
-    ├── gender_googlenet.onnx
-    ├── emotion-ferplus-8.onnx
-    └── inswapper_128.onnx
-```
+Required for
 
----
+- Face Detection
+- Face Recognition
+- Face Comparison
+- Face Registration
+- Face Embeddings
 
-# 📥 Extracting dlib Models
+Download:
 
-The dlib models are downloaded as **.bz2** files.
+https://github.com/deepinsight/insightface/tree/master/python-package
 
-## Windows
-
-Extract them using
-
-- 7-Zip
-- WinRAR
-
-After extracting you should get
-
-```text
-dlib_face_recognition_resnet_model_v1.dat
-shape_predictor_5_face_landmarks.dat
-```
-
-Copy both files into
-
-```text
-C:\Users\<Username>\.easyface\models\
-```
+or allow InsightFace to download it automatically on first run.
 
 ---
 
-## Linux
+## 2️⃣ Face Swap Model
 
-Install bzip2
+Required only for
 
-```bash
-sudo apt install bzip2
-```
-
-Extract
-
-```bash
-bunzip2 dlib_face_recognition_resnet_model_v1.dat.bz2
-bunzip2 shape_predictor_5_face_landmarks.dat.bz2
-```
-
-Move
-
-```bash
-mkdir -p ~/.easyface/models
-
-mv dlib_face_recognition_resnet_model_v1.dat ~/.easyface/models/
-
-mv shape_predictor_5_face_landmarks.dat ~/.easyface/models/
-```
-
----
-
-## macOS
-
-```bash
-brew install bzip2
-
-bunzip2 dlib_face_recognition_resnet_model_v1.dat.bz2
-
-bunzip2 shape_predictor_5_face_landmarks.dat.bz2
-```
-
-Move
-
-```bash
-mkdir -p ~/.easyface/models
-
-mv dlib_face_recognition_resnet_model_v1.dat ~/.easyface/models/
-
-mv shape_predictor_5_face_landmarks.dat ~/.easyface/models/
-```
-
----
-
-# 🖥 Manual Model Loading
-
-Instead of using the default folder, you can manually specify model paths.
-
-```python
-from FaceCoreV22 import Face
-
-face = Face(
-    face_model="models/face_landmarker.task",
-    age_model="models/age_googlenet.onnx",
-    gender_model="models/gender_googlenet.onnx",
-    emotion_model="models/emotion-ferplus-8.onnx",
-    swap_model="models/inswapper_128.onnx"
-)
-```
-
-You only need to provide the models you intend to use.
-
-Example:
-
-```python
-from FaceCoreV22 import Face
-
-face = Face(
-    swap_model="models/inswapper_128.onnx"
-)
-```
-
----
-
-# 📁 Model Usage
-
-| Feature | Required Models |
-|----------|-----------------|
-| Face Detection | face_landmarker.task |
-| Face Landmarks | face_landmarker.task |
-| Face Recognition | face_landmarker.task + dlib_face_recognition_resnet_model_v1.dat + shape_predictor_5_face_landmarks.dat |
-| Face Comparison | face_landmarker.task + dlib_face_recognition_resnet_model_v1.dat + shape_predictor_5_face_landmarks.dat |
-| Face Registration | face_landmarker.task + dlib_face_recognition_resnet_model_v1.dat + shape_predictor_5_face_landmarks.dat |
-| Age Detection | age_googlenet.onnx |
-| Gender Detection | gender_googlenet.onnx |
-| Emotion Detection | emotion-ferplus-8.onnx |
-| Image Face Swap | inswapper_128.onnx |
-| Video Face Swap | inswapper_128.onnx |
-| Webcam Recognition | face_landmarker.task + dlib_face_recognition_resnet_model_v1.dat + shape_predictor_5_face_landmarks.dat |
-| Webcam Face Swap | inswapper_128.onnx |
-
----
-
-# ⚠️ Common Model Errors
-
-## Recognition model not found
-
-```
-Recognition model not found
-```
+- Image Face Swapping
 
 Download
 
-```
-dlib_face_recognition_resnet_model_v1.dat
-```
+https://huggingface.co/ezioruan/inswapper_128.onnx
 
-and place it inside
-
-```text
-~/.easyface/models/
-```
-
----
-
-## Shape predictor not found
-
-```
-Shape predictor not found
-```
-
-Download
-
-```
-shape_predictor_5_face_landmarks.dat
-```
-
-and place it inside
-
-```text
-~/.easyface/models/
-```
-
----
-
-## Emotion model not found
-
-```
-emotion-ferplus-8.onnx not found
-```
-
-Download
-
-```
-emotion-ferplus-8.onnx
-```
-
-from Hugging Face.
-
----
-
-## Age/Gender model not found
-
-Download
-
-- age_googlenet.onnx
-- gender_googlenet.onnx
-
-from Hugging Face.
-
----
-
-## Face swap model not found
-
-Download
+File
 
 ```
 inswapper_128.onnx
 ```
 
-and place it in the models folder.
+---
+
+## 3️⃣ Age Detection Model
+
+Download
+
+https://huggingface.co/onnxmodelzoo/age_googlenet
+
+File
+
+```
+age_googlenet.onnx
+```
 
 ---
 
-➡️ **Part 3 includes complete API documentation and examples for every FaceCore function:**
+## 4️⃣ Gender Detection Model
 
-- detect()
-- compare()
-- register()
-- recognize()
-- landmarks()
-- analyze()
-- swap()
-- swap_video()
-- webcam_recognize()
-- webcam_swap()
-  # 📚 FaceCore API Documentation
+Download
 
-Once you have initialized FaceCore,
+https://huggingface.co/onnxmodelzoo/gender_googlenet
+
+File
+
+```
+gender_googlenet.onnx
+```
+
+---
+
+## 5️⃣ Emotion Detection Model
+
+Download
+
+https://huggingface.co/onnxmodelzoo/emotion-ferplus-8
+
+File
+
+```
+emotion-ferplus-8.onnx
+```
+
+---
+
+# 📂 Recommended Folder Structure
+
+```text
+FaceCore/
+│
+├── models/
+│   ├── inswapper_128.onnx
+│   ├── age_googlenet.onnx
+│   ├── gender_googlenet.onnx
+│   └── emotion-ferplus-8.onnx
+│
+├── examples.py
+├── README.md
+└── ...
+```
+
+---
+
+# 🚀 Automatic InsightFace Download
+
+The first time you initialize FaceCore,
 
 ```python
-from FaceCoreV22 import Face
+from FaceCore import Face
 
 face = Face()
 ```
 
-you can access every feature through the same object.
+InsightFace automatically downloads the required **buffalo_l** model if it is not already installed.
+
+No manual download is normally required.
+
+---
+
+# 📁 Default InsightFace Location
+
+### Windows
+
+```text
+C:\Users\<Username>\.insightface\models\
+```
+
+---
+
+### Linux
+
+```text
+~/.insightface/models/
+```
+
+---
+
+### macOS
+
+```text
+~/.insightface/models/
+```
+
+---
+
+# 📦 Manual Model Loading
+
+You can manually specify model paths when creating the `Face` object.
+
+### Face Swap
+
+```python
+from FaceCore import Face
+
+face = Face(
+    swap_model="models/inswapper_128.onnx"
+)
+```
+
+---
+
+### Age Detection
+
+```python
+from FaceCore import Face
+
+face = Face(
+    age_model="models/age_googlenet.onnx"
+)
+```
+
+---
+
+### Gender Detection
+
+```python
+from FaceCore import Face
+
+face = Face(
+    gender_model="models/gender_googlenet.onnx"
+)
+```
+
+---
+
+### Emotion Detection
+
+```python
+from FaceCore import Face
+
+face = Face(
+    emotion_model="models/emotion-ferplus-8.onnx"
+)
+```
+
+---
+
+### Multiple Models
+
+```python
+from FaceCore import Face
+
+face = Face(
+    swap_model="models/inswapper_128.onnx",
+    age_model="models/age_googlenet.onnx",
+    gender_model="models/gender_googlenet.onnx",
+    emotion_model="models/emotion-ferplus-8.onnx"
+)
+```
+
+---
+
+# 📊 Feature Requirements
+
+| Feature | Required Model |
+|----------|----------------|
+| Face Detection | buffalo_l |
+| Face Recognition | buffalo_l |
+| Face Comparison | buffalo_l |
+| Face Registration | buffalo_l |
+| Face Landmarks | buffalo_l |
+| Face Analysis | buffalo_l |
+| Age Prediction | age_googlenet.onnx |
+| Gender Prediction | gender_googlenet.onnx |
+| Emotion Recognition | emotion-ferplus-8.onnx |
+| Face Swapping | inswapper_128.onnx |
+| Webcam Recognition | buffalo_l |
+
+---
+
+# ⚠️ Common Model Errors
+
+## Face Swap Model Missing
+
+```text
+FileNotFoundError: inswapper_128.onnx
+```
+
+Download the Face Swap model and provide its path using the `swap_model` parameter.
+
+---
+
+## Age Model Missing
+
+```text
+Age model not found
+```
+
+Download `age_googlenet.onnx` and pass it using the `age_model` parameter.
+
+---
+
+## Gender Model Missing
+
+```text
+Gender model not found
+```
+
+Download `gender_googlenet.onnx` and pass it using the `gender_model` parameter.
+
+---
+
+## Emotion Model Missing
+
+```text
+Emotion model not found
+```
+
+Download `emotion-ferplus-8.onnx` and pass it using the `emotion_model` parameter.
+
+---
+
+## InsightFace Downloads Every Time
+
+If the InsightFace model is downloaded repeatedly:
+
+- Make sure the download completed successfully.
+- Verify that the `.insightface/models` directory is writable.
+- Avoid deleting the model cache between runs.
+
+---
+
+# 💡 Best Practices
+
+- Keep all optional ONNX models in a dedicated `models/` folder.
+- Initialize the `Face()` object only once.
+- Reuse the same model files across projects.
+- Use absolute paths if your models are stored outside the project directory.
+
+---
+
+## ➡️ Part 3
+
+Part 3 will include:
+
+- 📚 Complete API Documentation
+- 🔍 `detect()`
+- 👤 `register()`
+- 🆚 `compare()`
+- 🪪 `recognize()`
+- 📍 `landmarks()`
+- 🎂 `analyze()`
+- 😀 Emotion Detection Examples
+- 🎭 `swap()`
+- 📷 Webcam Recognition
+- 📊 Return Values & Examples
+  # 📚 API Documentation
+
+Once you have initialized FaceCore,
+
+```python
+from FaceCore import Face
+
+face = Face()
+```
+
+all features can be accessed from the same `Face` object.
 
 ---
 
 # 🔍 Face Detection
 
-Detect every face inside an image.
+Detect one or multiple faces inside an image.
 
 ## Syntax
 
 ```python
-faces = face.detect(image_path)
+faces = face.detect("group.jpg")
 ```
+
+---
 
 ## Example
 
 ```python
-from FaceCoreV22 import Face
+from FaceCore import Face
 
 face = Face()
 
@@ -578,6 +643,8 @@ faces = face.detect("group.jpg")
 print(faces)
 ```
 
+---
+
 ## Returns
 
 ```python
@@ -585,28 +652,46 @@ print(faces)
     {
         "bbox": [x1, y1, x2, y2],
         "confidence": 0.99,
-        "landmarks": [...]
+        "landmarks": [...],
+        "embedding": [...]
     }
 ]
 ```
 
 ---
 
+## Parameters
+
+| Parameter | Type | Description |
+|------------|------|-------------|
+| image | str | Image path |
+
+---
+
 # 🆚 Face Comparison
 
-Compare two face images.
+Compare two face images and return a similarity score.
 
-Returns a similarity score between **0–100**.
+---
 
 ## Syntax
 
 ```python
-score = face.compare(image1, image2)
+score = face.compare(
+    "person1.jpg",
+    "person2.jpg"
+)
 ```
+
+---
 
 ## Example
 
 ```python
+from FaceCore import Face
+
+face = Face()
+
 score = face.compare(
     "me1.jpg",
     "me2.jpg"
@@ -618,24 +703,46 @@ print(score)
 Output
 
 ```
-96.74
+97.84
 ```
 
-Higher score = More similar.
+Higher score means the faces are more similar.
+
+---
+
+## Parameters
+
+| Parameter | Type |
+|------------|------|
+| image1 | str |
+| image2 | str |
+
+---
+
+## Returns
+
+```python
+float
+```
 
 ---
 
 # 👤 Register Face
 
-Register a person's face.
+Register a person's face for future recognition.
 
-Registered faces are stored in memory and can later be recognized.
+---
 
 ## Syntax
 
 ```python
-face.register(name, image)
+face.register(
+    name,
+    image
+)
 ```
+
+---
 
 ## Example
 
@@ -650,21 +757,36 @@ Register multiple people
 
 ```python
 face.register("Alex","alex.jpg")
-face.register("John","john.jpg")
 face.register("Emma","emma.jpg")
+face.register("John","john.jpg")
 ```
+
+---
+
+## Parameters
+
+| Parameter | Type |
+|------------|------|
+| name | str |
+| image | str |
 
 ---
 
 # 🪪 Face Recognition
 
-Recognize a registered person.
+Recognize a previously registered face.
+
+---
 
 ## Syntax
 
 ```python
-name = face.recognize(image)
+name = face.recognize(
+    "person.jpg"
+)
 ```
+
+---
 
 ## Example
 
@@ -682,26 +804,51 @@ Output
 Srish
 ```
 
-You can also specify a threshold.
+---
+
+### Using a Threshold
 
 ```python
 name = face.recognize(
     "person.jpg",
-    threshold=65
+    threshold=70
 )
 ```
 
 ---
 
-# 📍 Face Landmarks
+## Parameters
 
-Extract facial landmarks.
+| Parameter | Type |
+|------------|------|
+| image | str |
+| threshold | int *(optional)* |
+
+---
+
+## Returns
+
+```python
+str
+```
+
+---
+
+# 📍 Facial Landmarks
+
+Extract facial landmark points.
+
+---
 
 ## Syntax
 
 ```python
-points = face.landmarks(image)
+points = face.landmarks(
+    "person.jpg"
+)
 ```
+
+---
 
 ## Example
 
@@ -713,7 +860,9 @@ points = face.landmarks(
 print(points)
 ```
 
-Returns
+---
+
+## Returns
 
 ```python
 [
@@ -727,15 +876,34 @@ Returns
 
 ---
 
-# 🎂 Age & Gender Detection
+## Parameters
 
-Estimate a person's age and gender.
+| Parameter | Type |
+|------------|------|
+| image | str |
+
+---
+
+# 🎂 Face Analysis
+
+Analyze a detected face.
+
+Depending on the loaded models, FaceCore can estimate
+
+- Age
+- Gender
+
+---
 
 ## Syntax
 
 ```python
-info = face.analyze(image)
+info = face.analyze(
+    "person.jpg"
+)
 ```
+
+---
 
 ## Example
 
@@ -747,34 +915,34 @@ info = face.analyze(
 print(info)
 ```
 
-Output
+Possible Output
 
 ```python
 {
-    "age":"(25-32)",
+    "age":"25-32",
     "gender":"Male",
-    "confidence":0.99
+    "confidence":0.98
 }
 ```
 
 ---
 
-# 😀 Emotion Detection
+# 😀 Emotion Recognition
 
-Requires
+If an emotion model is loaded, FaceCore can also predict facial emotions.
 
-```
-emotion-ferplus-8.onnx
-```
+---
 
 ## Syntax
 
 ```python
 info = face.analyze(
-    image,
+    "person.jpg",
     include_emotion=True
 )
 ```
+
+---
 
 ## Example
 
@@ -787,22 +955,24 @@ info = face.analyze(
 print(info)
 ```
 
-Output
+Possible Output
 
 ```python
 {
-    "age":"(25-32)",
+    "age":"25-32",
     "gender":"Male",
     "emotion":"Happy",
-    "confidence":0.98
+    "confidence":0.99
 }
 ```
 
 ---
 
-# 🖼 Image Face Swap
+# 🎭 Face Swapping
 
-Swap one face onto another image.
+Swap a source face onto a target image.
+
+---
 
 ## Syntax
 
@@ -813,6 +983,8 @@ face.swap(
     output
 )
 ```
+
+---
 
 ## Example
 
@@ -831,60 +1003,131 @@ result.jpg
 ```
 
 ---
+---
 
-# 🎬 Video Face Swap
+# 🎭 Live Webcam Face Swapping
 
-Swap faces in a video.
+Swap your face onto detected faces in real-time using your webcam.
 
-Audio is automatically preserved using FFmpeg.
+The source face is loaded once, and every detected face in the webcam stream is replaced with the source face.
+
+---
 
 ## Syntax
 
 ```python
-face.swap_video(
+face.webcam_swap(
     source_image,
-    target_video,
-    output_path
-)
-```
-
-## Example
-
-```python
-face.swap_video(
-    source_image="me.jpg",
-    target_video="video.mp4",
-    output_path="output.mp4"
-)
-```
-
-Swap every second frame
-
-```python
-face.swap_video(
-    source_image="me.jpg",
-    target_video="video.mp4",
-    output_path="output.mp4",
     swap_every=2
 )
 ```
 
-Swap every third frame
+---
+
+## Example
 
 ```python
-face.swap_video(
-    source_image="me.jpg",
-    target_video="video.mp4",
-    output_path="output.mp4",
+from FaceCore import Face
+
+face = Face(
+    swap_model="inswapper_128.onnx"
+)
+
+face.webcam_swap(
+    "me.jpg"
+)
+```
+
+---
+
+## Process Every Second Frame
+
+```python
+face.webcam_swap(
+    "me.jpg",
+    swap_every=2
+)
+```
+
+This is the recommended setting and provides a good balance between performance and visual quality.
+
+---
+
+## Process Every Third Frame
+
+```python
+face.webcam_swap(
+    "me.jpg",
     swap_every=3
 )
 ```
+
+Using a larger value increases FPS while slightly reducing swap frequency.
+
+---
+
+## Parameters
+
+| Parameter | Type | Description |
+|------------|------|-------------|
+| `source_image` | str | Source face image used for swapping |
+| `swap_every` | int | Swap every *N* frames (Default: `2`) |
+
+---
+
+## Returns
+
+```python
+None
+```
+
+The swapped webcam stream is displayed in a live OpenCV window.
+
+Press **Q** at any time to exit.
+
+---
+
+## Performance Tips
+
+| swap_every | Performance | Quality |
+|------------|-------------|---------|
+| `1` | Slowest | Best |
+| `2` | Recommended | Excellent |
+| `3` | Faster | Very Good |
+| `4+` | Fastest | Lower swap frequency |
+
+---
+
+## Example
+
+```python
+from FaceCore import Face
+
+face = Face(
+    swap_model="inswapper_128.onnx"
+)
+
+face.webcam_swap(
+    source_image="my_face.jpg",
+    swap_every=2
+)
+```
+
+## Parameters
+
+| Parameter | Type |
+|------------|------|
+| source | str |
+| target | str |
+| output | str |
 
 ---
 
 # 📷 Webcam Recognition
 
-Run real-time face recognition.
+Run real-time face recognition from your webcam.
+
+---
 
 ## Syntax
 
@@ -892,186 +1135,170 @@ Run real-time face recognition.
 face.webcam_recognize()
 ```
 
+---
+
 ## Example
 
 ```python
+from FaceCore import Face
+
+face = Face()
+
+face.register(
+    "Srish",
+    "srish.jpg"
+)
+
 face.webcam_recognize()
 ```
 
-With emotion detection
-
-```python
-face.webcam_recognize(
-    show_emotion=True
-)
-```
-
-Without emotion detection
-
-```python
-face.webcam_recognize(
-    show_emotion=False
-)
-```
+Press **Q** to exit the webcam window.
 
 ---
 
-# 🎭 Webcam Face Swap
-
-Swap your face in real-time.
-
-## Syntax
-
-```python
-face.webcam_swap(
-    source_image
-)
-```
-
-## Example
-
-```python
-face.webcam_swap(
-    source_image="me.jpg"
-)
-```
-
-Process every third frame
-
-```python
-face.webcam_swap(
-    source_image="me.jpg",
-    swap_every=3
-)
-```
-
----
-
-# 📊 Feature Summary
+# 📊 API Summary
 
 | Method | Description |
-|---------|-------------|
-| `detect()` | Detect all faces in an image |
+|----------|-------------|
+| `detect()` | Detect faces in an image |
 | `compare()` | Compare two faces |
 | `register()` | Register a person's face |
 | `recognize()` | Recognize registered faces |
 | `landmarks()` | Extract facial landmarks |
-| `analyze()` | Detect age, gender and emotion |
-| `swap()` | Swap faces in an image |
-| `swap_video()` | Swap faces in a video |
+| `analyze()` | Predict age, gender and emotion |
+| `swap()` | Swap faces between images |
 | `webcam_recognize()` | Live face recognition |
-| `webcam_swap()` | Live face swapping |
 
 ---
 
-# 💡 Tips
+# 💡 Usage Tips
 
-- Create the `Face()` object only once.
+- Create only one `Face()` instance.
 - Reuse the same object throughout your application.
-- Store all AI models in the default `.easyface/models` directory.
-- Use `swap_every=2` or `swap_every=3` for faster video processing.
-- Ensure FFmpeg is installed before using `swap_video()`.
-- For best recognition accuracy, use clear, front-facing images with good lighting.
+- Register faces before calling `recognize()`.
+- Load optional models only when needed.
+- Store your AI models in a dedicated `models/` folder.
+- Use high-quality, front-facing images for the best recognition accuracy.
 
 ---
 
-➡️ **Part 4 includes:**
+## ➡️ Part 4
 
-- Troubleshooting
-- Frequently Asked Questions (FAQ)
-- Performance Tips
-- Roadmap
-- Contributing
-- License
-- Author
-- Credits
-- Support
-- Changelog
-- Final footer
+Part 4 will include:
+
+- ⚠️ Troubleshooting
+- ❓ Frequently Asked Questions (FAQ)
+- 🚀 Performance Tips
+- 🛣️ Roadmap
+- 🤝 Contributing
+- 📜 License
+- ❤️ Support
+- 👨‍💻 Author
+- 🙏 Credits
+- 📈 Changelog
+- ⭐ Final GitHub Footer
   # ⚠️ Troubleshooting
 
 If you encounter any issues while using FaceCore, check the solutions below.
 
 ---
 
+# 📦 Installation Errors
+
 ## ModuleNotFoundError
 
 Example
 
 ```text
-ModuleNotFoundError: No module named 'onnxruntime'
+ModuleNotFoundError: No module named 'insightface'
 ```
 
-Install the required packages
+Install the required packages.
 
 ```bash
-pip install mediapipe onnxruntime onnx opencv-python numpy pillow dlib-bin
+pip install insightface onnxruntime opencv-python pillow numpy
 ```
 
 or
 
 ```bash
-uv add mediapipe onnxruntime onnx opencv-python numpy pillow dlib-bin
+pip install -r requirements/requirements.txt
 ```
 
 ---
 
-## Recognition Model Not Found
+## ONNX Runtime Missing
 
 ```text
-Recognition model not found
+ModuleNotFoundError: No module named 'onnxruntime'
+```
+
+Install ONNX Runtime.
+
+```bash
+pip install onnxruntime
+```
+
+---
+
+## OpenCV Missing
+
+```text
+ModuleNotFoundError: No module named 'cv2'
+```
+
+Install OpenCV.
+
+```bash
+pip install opencv-python
+```
+
+---
+
+# 🤖 Model Errors
+
+## Face Swap Model Not Found
+
+```text
+FileNotFoundError: inswapper_128.onnx
+```
+
+Download the model and specify its location.
+
+```python
+face = Face(
+    swap_model="models/inswapper_128.onnx"
+)
+```
+
+---
+
+## Age Model Missing
+
+```text
+Age model not found
 ```
 
 Download
 
 ```
-dlib_face_recognition_resnet_model_v1.dat
+age_googlenet.onnx
 ```
 
-Place it inside
-
-```
-~/.easyface/models/
-```
+and load it when creating the `Face` object.
 
 ---
 
-## Shape Predictor Not Found
+## Gender Model Missing
 
 ```text
-Shape predictor not found
+Gender model not found
 ```
 
 Download
 
 ```
-shape_predictor_5_face_landmarks.dat
-```
-
-Place it inside
-
-```
-~/.easyface/models/
-```
-
----
-
-## Face Landmarker Not Found
-
-```text
-face_landmarker.task not found
-```
-
-Download
-
-```
-face_landmarker.task
-```
-
-Place it inside
-
-```
-~/.easyface/models/
+gender_googlenet.onnx
 ```
 
 ---
@@ -1079,7 +1306,7 @@ Place it inside
 ## Emotion Model Missing
 
 ```text
-emotion-ferplus-8.onnx not found
+Emotion model not found
 ```
 
 Download
@@ -1088,99 +1315,132 @@ Download
 emotion-ferplus-8.onnx
 ```
 
-Place it inside
-
-```
-~/.easyface/models/
-```
-
 ---
 
-## Face Swap Model Missing
-
-```text
-inswapper_128.onnx not found
-```
-
-Download
-
-```
-inswapper_128.onnx
-```
-
-Place it inside
-
-```
-~/.easyface/models/
-```
-
----
-
-## No Face Detected
+## InsightFace Downloads Every Run
 
 Possible reasons
 
-- Poor lighting
-- Face too small
-- Face rotated
-- Blurry image
-- Face covered
+- Model download was interrupted.
+- Cache directory was deleted.
+- No write permission to the model directory.
+
+Delete the incomplete model folder and run FaceCore again.
 
 ---
+
+# 📷 Webcam Problems
 
 ## Webcam Not Opening
 
-Check
+Check the following:
 
-- Webcam permissions
-- Webcam drivers
-- Another application isn't already using the camera
-
----
-
-## Video Swap Doesn't Preserve Audio
-
-Install FFmpeg
-
-```bash
-ffmpeg -version
-```
-
-If not installed
-
-Windows
-
-```powershell
-winget install ffmpeg
-```
-
-Ubuntu
-
-```bash
-sudo apt install ffmpeg
-```
+- Webcam permissions are enabled.
+- No other application is using the camera.
+- Camera drivers are installed correctly.
+- Try another camera index if multiple webcams are connected.
 
 ---
 
-## Slow Processing
+## Webcam Lag
 
-For faster processing
+For smoother performance
 
 ```python
-swap_every=2
+face.webcam_swap(
+    "me.jpg",
+    swap_every=2
+)
 ```
 
 or
 
 ```python
-swap_every=3
+face.webcam_swap(
+    "me.jpg",
+    swap_every=3
+)
 ```
 
-instead of
+Avoid using
 
 ```python
 swap_every=1
 ```
+
+unless maximum quality is required.
+
+---
+
+# 👤 Recognition Problems
+
+## Face Not Recognized
+
+Possible causes
+
+- Face was never registered.
+- Poor lighting.
+- Face is rotated.
+- Face is too small.
+- Recognition threshold is too high.
+
+Try using a lower threshold.
+
+```python
+face.recognize(
+    "person.jpg",
+    threshold=60
+)
+```
+
+---
+
+## Wrong Person Detected
+
+Improve accuracy by
+
+- Registering higher-quality images.
+- Using front-facing faces.
+- Registering multiple images of the same person.
+- Ensuring good lighting.
+
+---
+
+# 🎭 Face Swap Problems
+
+## Swap Looks Incorrect
+
+Check that
+
+- Source image contains a clear face.
+- Target image contains a visible face.
+- Face is not heavily rotated.
+- Face is not covered by objects.
+
+---
+
+## No Face Found
+
+Possible reasons
+
+- Blurry image.
+- Very small face.
+- Side profile.
+- Poor lighting.
+- Face outside the frame.
+
+---
+
+# 🚀 Performance Tips
+
+For the best experience
+
+- ✅ Initialize `Face()` only once.
+- ✅ Reuse the same object.
+- ✅ Store models on an SSD.
+- ✅ Use clear, front-facing images.
+- ✅ Use `swap_every=2` for webcam swapping.
+- ✅ Close unused applications while using the webcam.
 
 ---
 
@@ -1190,17 +1450,9 @@ swap_every=1
 
 No.
 
-FaceCore works on CPU.
+FaceCore works perfectly on CPU.
 
-ONNX Runtime automatically accelerates inference where possible.
-
----
-
-### Does FaceCore support NVIDIA CUDA?
-
-Currently the default build uses CPU.
-
-CUDA support may be added in future releases.
+If ONNX Runtime GPU is installed, inference may be accelerated automatically.
 
 ---
 
@@ -1208,7 +1460,7 @@ CUDA support may be added in future releases.
 
 Yes.
 
-All faces inside an image are detected.
+Multiple faces are supported in detection, recognition, and swapping.
 
 ---
 
@@ -1216,10 +1468,12 @@ All faces inside an image are detected.
 
 Yes.
 
+Example
+
 ```python
 face.register("Alex","alex.jpg")
-face.register("John","john.jpg")
 face.register("Emma","emma.jpg")
+face.register("John","john.jpg")
 ```
 
 ---
@@ -1228,9 +1482,7 @@ face.register("Emma","emma.jpg")
 
 No.
 
-Currently the face database is stored in memory.
-
-Persistent storage is planned for a future release.
+Registered faces are stored in memory for the current session only.
 
 ---
 
@@ -1244,109 +1496,75 @@ Persistent storage is planned for a future release.
 
 ---
 
-### Which video formats are supported?
-
-- MP4
-- AVI
-- MOV
-- MKV
-- WMV
-
----
-
-### Can I use FaceCore commercially?
+### Does FaceCore work offline?
 
 Yes.
 
-FaceCore is released under the MIT License.
-
-Always verify that the AI models you download are licensed for your intended use.
+Once the required AI models are downloaded, FaceCore works completely offline.
 
 ---
 
-# 🚀 Performance Tips
+### Can I use my own ONNX models?
 
-For best results
+Yes.
 
-✅ Use clear images
+Provide the model path while initializing `Face()`.
 
-✅ Good lighting
+---
 
-✅ Front-facing faces
+### Which operating systems are supported?
 
-✅ High-resolution images
-
-✅ Keep models on SSD storage
-
-✅ Reuse the same `Face()` object
-
-Example
-
-```python
-face = Face()
-
-face.detect(...)
-
-face.compare(...)
-
-face.swap(...)
-```
-
-Don't recreate the object repeatedly.
+- Windows
+- Linux
+- macOS
 
 ---
 
 # 🛣 Roadmap
 
-Upcoming features
+Upcoming improvements
 
-- GPU Acceleration
-- Batch Face Processing
-- Face Enhancement
-- Face Restoration
-- Face Tracking
-- Multiple Face Swapping
-- Face Blur
-- Face Mask Detection
-- Face Quality Scoring
-- Emotion Timeline
-- Persistent Face Database
-- GUI Application
-- Command Line Interface
-- Docker Support
-- Mobile Support
+- GPU acceleration
+- Video face swapping
+- Persistent face database
+- Batch face processing
+- Face enhancement
+- Face restoration
+- Face tracking
+- Face quality scoring
+- Live emotion recognition improvements
+- Command Line Interface (CLI)
+- Docker support
 - REST API
-- Live Video Streaming
-- Better Face Matching
-- Performance Improvements
+- Performance optimizations
 
 ---
 
 # 🤝 Contributing
 
-Contributions are welcome.
+Contributions are always welcome.
 
-1. Fork the repository
+1. Fork the repository.
 
-2. Create a new branch
+2. Create a feature branch.
 
 ```bash
 git checkout -b feature-name
 ```
 
-3. Commit your changes
+3. Commit your changes.
 
 ```bash
 git commit -m "Added new feature"
 ```
 
-4. Push
+4. Push your branch.
 
 ```bash
 git push origin feature-name
 ```
 
-5. Open a Pull Request
+5. Open a Pull Request.
 
 ---
 
@@ -1361,35 +1579,32 @@ You are free to
 - Distribute
 - Share
 
-Please include the original license when redistributing.
+Please include the original license when redistributing this project.
 
 ---
 
 # ❤️ Support
 
-If you like FaceCore,
+If you find FaceCore useful,
 
-⭐ Star the repository
+- ⭐ Star this repository
+- 🐛 Report bugs
+- 💡 Suggest new features
+- 🤝 Contribute to the project
 
-🐛 Report bugs
-
-💡 Suggest new features
-
-🤝 Contribute to the project
+Your support helps improve FaceCore for everyone.
 
 ---
 
 # 👨‍💻 Author
 
-## Srish Ghosh
+## **Srish Ghosh**
 
-Python Developer
+Python Developer • AI Enthusiast • Open Source Contributor
 
-Open Source Enthusiast
+**GitHub**
 
-GitHub
-
-```
+```text
 https://github.com/developer-srish
 ```
 
@@ -1400,15 +1615,13 @@ https://github.com/developer-srish
 FaceCore is built using these amazing open-source projects.
 
 - Python
-- MediaPipe
+- InsightFace
 - OpenCV
 - ONNX Runtime
-- dlib
 - NumPy
 - Pillow
-- FFmpeg
 
-Special thanks to the developers and maintainers of these projects.
+Special thanks to the maintainers of these projects for making modern computer vision accessible to everyone.
 
 ---
 
@@ -1420,46 +1633,41 @@ Special thanks to the developers and maintainers of these projects.
 
 - Face Detection
 - Face Recognition
-- Face Registration
 - Face Comparison
-- Face Landmarks
-- Age Detection
-- Gender Detection
-- Emotion Detection
+- Face Registration
+- Facial Landmarks
+- Age Prediction
+- Gender Prediction
+- Emotion Recognition
 - Image Face Swapping
-- Video Face Swapping
 - Webcam Recognition
 - Webcam Face Swapping
 
 ### Improved
 
-- Faster ONNX Runtime inference
-- Better detection accuracy
+- Faster inference
 - Cleaner API
-- Simpler installation
 - Better documentation
+- Simplified model loading
+- Improved recognition workflow
 
 ### Fixed
 
-- Windows compatibility
-- Model loading improvements
-- FFmpeg integration
-- Recognition performance
+- General stability improvements
+- Better error handling
+- Cross-platform compatibility
 
 ---
 
-# 🌟 Star History
+# ⭐ Support the Project
 
-If FaceCore helps you, consider giving the repository a ⭐ on GitHub.
-
-It helps others discover the project and motivates future development.
-
----
+If FaceCore helps you build something awesome,
 
 <p align="center">
 
-## ⭐ If you like FaceCore, don't forget to star the repository!
+## ⭐ Give this repository a Star!
 
-Made with ❤️ by **Srish Ghosh**
+**Made with ❤️ by Srish Ghosh**
 
 </p>
+  
