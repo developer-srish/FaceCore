@@ -1,4 +1,13 @@
 # 🧠 FaceCore
+<p align="center">
+  <img src="assets/logo.png" alt="FaceCore Logo" width="300">
+</p>
+
+<h1 align="center">FaceCore</h1>
+
+<p align="center">
+  <b>Fast • Accurate • AI-Powered Face Recognition Library</b>
+</p>
 
 ### A Simple, Powerful Python Face Analysis Toolkit
 
